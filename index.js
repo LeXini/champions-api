@@ -10,6 +10,7 @@ app.use(express.urlencoded({extended:false}))
 app.use(cors())
 
 const getFuncao = (request, response) => {
+    
     pool.query("select * from funcoes order by codigo", (error, results) => {
         if (error) {
             return response.status(401).json({status: 'error', 
@@ -20,6 +21,7 @@ const getFuncao = (request, response) => {
 }
 
 const addFuncao = (request, response) => {
+
     const { nome , caracteristica } = request.body
 
     pool.query(
@@ -37,6 +39,7 @@ const addFuncao = (request, response) => {
 
 
 const updateFuncao = (request, response) => {
+
     const { codigo, nome , caracteristica } = request.body
 
     pool.query(
