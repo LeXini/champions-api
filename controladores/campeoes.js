@@ -78,7 +78,7 @@ const getCampeaoPorCodigo = (request, response) => {
 
     pool.query(
         'select c.codigo as codigo, c.nome as nome, c.dificuldade as dificuldade,\
-        c.funcao as funcao, f.funcao as funcao_nome \
+        c.funcao as funcao, f.nome as funcao_nome \
         from campeoes c \
         join funcoes f on f.codigo = c.funcao where c.codigo = $1 order by c.codigo ',
         [codigo],
